@@ -1,0 +1,119 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<!--
+    WELCOME TO THE STRIVE TEAM GENERATOR!
+    The app is pretty straight forward, use Bootstrap to add the following features:
+    - The user can add a list of names
+    - The user can set the number of teams
+    - Every time the user clicks on the "assign" button, a random name is placed in a team and removed from the list
+    - Each team should be inside a "column"
+    - [EXTRA] Create a button to remove an user from a team, putting him back in the main list
+    - [EXTRA] Create a button to reset the state of the app
+-->
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="./images/pngegg.png" width="30" height="30" alt="" />
+      </a>
+    </nav>
+    
+        <h2 class="text-center font-weight-bold mt-5"><img class="img-responsive center-block" src="https://cdn.dribbble.com/users/474076/screenshots/4451855/animaicons1-dribble-1random.gif" style="width: 150px;"/>Random Team Generator!</h2>
+
+    
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">groups:</span>
+      </div>
+      <p class="numgroups-wrap">
+        <input class="numgroups sm" type="integer" value="" />
+      </p>
+    </div>
+
+    <div class="groups"></div>
+    <form>
+      <div class="form-group">
+        <textarea name="students" class="form-control" id="students" rows="3">
+      <textarea cols="40" rows="15"></textarea
+        ></textarea>
+      </div>
+    </form>
+    <button class="btn btn-secondary btn-lg btn-block mt-3 mb-4" >Make Groups</button>
+
+    <!--
+    <div class='wrapper'>
+        <form id='nameForm'>
+        <div class='form-uname'>
+            <label id='nameLable' for='nameField'>Create a username:</label>
+            <input id='nameField' type='text' maxlength='25'></input>
+        </div>
+        <div class='form-sub'>
+            <button id='subButton' type='button'>Print your name!</button>
+        </div>
+        </form>
+        
+        <div>
+            <p id='result'></p></div>
+        </div>
+-->
+
+    <!--input
+    <div id="nameForm" class="input-group mb-3">
+      <input
+        id="nameField"
+        type="text"
+        class="form-control"
+        placeholder="Insert a name"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit" id="button-addon2">
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <p id="result"></p>
+    </div>
+-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascript.js"></script>
+  </body>
+</html>

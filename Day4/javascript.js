@@ -14,7 +14,7 @@ $('button').on('click', function(e) {
 	$('.groups').empty();
 
 	for (i = 0; i < numgroups; i++) {
-		$('.groups').append('<div class="group" id="group' + (i+1) + '"><h2>Group ' + (i+1) + '</h2></div>');
+		$('.groups').append('<div class="group" id="group' + (i+1) + '"><h2>Team ' + (i+1) + '</h2></div>');
 	}
 
 	$('.group').each(function() {

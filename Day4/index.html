@@ -39,17 +39,17 @@
         <h2 class="text-center font-weight-bold mt-5"><img class="img-responsive center-block" src="https://cdn.dribbble.com/users/474076/screenshots/4451855/animaicons1-dribble-1random.gif" style="width: 150px;"/>Random Team Generator!</h2>
 
     
-
     <div class="input-group input-group-sm mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">groups:</span>
-      </div>
-      <p class="numgroups-wrap">
-        <input class="numgroups sm" type="integer" value="" />
-      </p>
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">groups:</span>
+        
+           <input class="numgroups sm" type="integer" value="" />
+            <p class="numgroups-wrap"></p>
+         </div>  
     </div>
+    
 
-    <div class="groups"></div>
+    
     <form>
       <div class="form-group">
         <textarea name="students" class="form-control" id="students" rows="3">
@@ -57,46 +57,34 @@
         ></textarea>
       </div>
     </form>
-    <button class="btn btn-secondary btn-lg btn-block mt-3 mb-4" >Make Groups</button>
 
-    <!--
-    <div class='wrapper'>
-        <form id='nameForm'>
-        <div class='form-uname'>
-            <label id='nameLable' for='nameField'>Create a username:</label>
-            <input id='nameField' type='text' maxlength='25'></input>
+
+    <button  class="btn btn-secondary btn-lg btn-block mt-3 mb-4" data-toggle="modal" data-target="#exampleModal" >Make Groups</button>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        <div class="modal-body">
+            <div class="groups"></div>
+    </div>
+            
+              
+
+    <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Ranomize</button>
         </div>
-        <div class='form-sub'>
-            <button id='subButton' type='button'>Print your name!</button>
-        </div>
-        </form>
         
-        <div>
-            <p id='result'></p></div>
-        </div>
--->
 
-    <!--input
-    <div id="nameForm" class="input-group mb-3">
-      <input
-        id="nameField"
-        type="text"
-        class="form-control"
-        placeholder="Insert a name"
-        aria-label="Recipient's username"
-        aria-describedby="button-addon2"
-      />
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="submit" id="button-addon2">
-          Submit
-        </button>
-      </div>
-    </div>
+   
 
-    <div>
-      <p id="result"></p>
-    </div>
--->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

@@ -29,9 +29,3 @@ $('button').on('click', function(e) {
 	});
 });
 
-$('.toggle-wrap a').on('click', function(e){
-	e.preventDefault();
-	$('.wrap').toggleClass('alt');
-	$('.pergroup-wrap, .numgroups-wrap').find('input').val('');
-});
-  

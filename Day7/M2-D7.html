@@ -503,7 +503,7 @@
 
       /* EX13) Write a function to change the background of the jumbotron */
       function jumbotronBkColor() {
-        document.querySelector(".jumbotron").style.color = "grey";
+        document.querySelector(".jumbotron").style.color = "pink";
       }
 
       /* EX14) Write a function to change the color of the main title */
@@ -520,10 +520,12 @@
       }
 
       /* EX16) Write a function to remove all the links under "Elsewhere" */
-      function removeLinks() {
-        document.querySelector("div.p-4:last-child>.list-unstyled").innerHTML =
-          "";
-      }
+      const yeetElswhere = () => {
+        let elseLinks = document.querySelectorAll(".p-4:last-of-type ol li");
+        [...elseLinks].forEach((e, i) => {
+          elseLinks[i].remove();
+        });
+      };
 
       /* EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post */
 

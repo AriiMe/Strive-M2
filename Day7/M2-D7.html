@@ -528,6 +528,12 @@
       };
 
       /* EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post */
+      const trim50 = () => {
+        let ps = document.querySelectorAll(".blog-post p:nth-of-type(2)");
+        ps.forEach((Paragraph) => {
+          Paragraph.innerText = Paragraph.innerText.substring(50);
+        });
+      };
 
       /* EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title) */
       const newPost = () => {

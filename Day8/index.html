@@ -18,6 +18,27 @@
       crossorigin="anonymous"
     />
     <style>
+      div.container.ex1 {
+        height: 400px;
+      }
+      .col1 {
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+      }
+      .part1 {
+        background-color: rgb(247, 184, 67);
+        border-top-right-radius: 30px;
+      }
+      .part2 {
+        background-color: rgb(248, 161, 0);
+      }
+      .part3 {
+        background-color: rgb(224, 150, 11);
+        border-bottom-right-radius: 30px;
+      }
+      .text-white {
+        width: 100px;
+      }
       .buttons {
         align-content: left;
       }
@@ -35,6 +56,27 @@
         margin-right: 0;
         margin-left: 0;
         border-width: 0.2rem;
+      }
+      .align-bottom {
+        vertical-align: bottom;
+      }
+      footer {
+        padding: 10rem;
+        left: 0;
+        bottom: 0;
+        border-top: 1px solid #dee2e6;
+      }
+
+      footer li {
+        list-style-type: none;
+      }
+
+      footer li a {
+        color: grey;
+      }
+
+      footer li a:hover {
+        color: rgb(172, 172, 172);
       }
     </style>
 
@@ -63,6 +105,52 @@
         </li>
       </ul>
     </nav>
+
+    <div class="container ex1 mt-5">
+      <div class="row">
+        <div
+          class="col-12 col-md-6 col1 border-left border-top border-bottom border-dark bg-success d-flex justify-content-center align-items-center"
+          style="height: 400px"
+        >
+          <div class="text-white">
+            <p>First Column</p>
+            <p>Height 400px</p>
+            <p>Greenish background</p>
+            <p>Text centered</p>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md-2 col2 border-left border-top border-bottom border-dark bg-primary d-flex justify-content-center align-items-end"
+          style="height: 400px"
+        >
+          <div class="text-white">
+            <p>Second Column</p>
+            <p>Text To the bottom</p>
+            <p>Bold,Blueish</p>
+            <p>Background</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col3">
+          <div class="row" style="height: 400px">
+            <div
+              class="col-12 part1 border-right border-top border-dark d-flex justify-content-center align-items-center"
+            >
+              <p>Third column Part1</p>
+            </div>
+            <div
+              class="col-12 part2 border-right border-dark d-flex justify-content-center align-items-center"
+            >
+              <p>Third column Part2</p>
+            </div>
+            <div
+              class="col-12 part3 border-bottom border-right border-dark d-flex justify-content-center align-items-center"
+            >
+              <p>Third column Part3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="pricing">
       <div class="container">
@@ -124,18 +212,24 @@
                   Here you can place your video description, in order to inform
                   the user of what to expect by clicking on the link
                 </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-                <div class="buttons">
-                  <button type="button" class="btn btn-outline-dark btn-sm">
-                    <a target="_blank" href="https://youtu.be/TKvjEQXKeec?t=18"
-                      >View</a
+                <div class="align-bottom">
+                  <p class="card-text">
+                    <small class="text-muted align-text-bottom"
+                      >Last updated 3 mins ago</small
                     >
-                  </button>
-                  <button type="button" class="btn btn-outline-dark btn-sm">
-                    Edit
-                  </button>
+                  </p>
+                  <div class="buttons">
+                    <button type="button" class="btn btn-outline-dark btn-sm">
+                      <a
+                        target="_blank"
+                        href="https://youtu.be/TKvjEQXKeec?t=18"
+                        >View</a
+                      >
+                    </button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">
+                      Edit
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -368,6 +462,34 @@
           </div>
         </div>
       </div>
+
+      <footer class="mt-5 d-flex justify-content-center">
+        <div class="row py-5">
+          <div class="col-5">
+            <h5>Features</h5>
+            <li><a href="#">Cool stuff</a></li>
+            <li><a href="#">Random feature</a></li>
+            <li><a href="#">Team feature</a></li>
+            <li><a href="#">Stuff for developers</a></li>
+            <li><a href="#">Another one</a></li>
+            <li><a href="#">Last time</a></li>
+          </div>
+          <div class="col-5">
+            <h5>Resources</h5>
+            <li><a href="#">Resource</a></li>
+            <li><a href="#">Resource name</a></li>
+            <li><a href="#">Another resource</a></li>
+            <li><a href="#">Final resource</a></li>
+          </div>
+          <div class="col-2">
+            <h5>About</h5>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </div>
+        </div>
+      </footer>
 
       <!-- Optional JavaScript; choose one of the two! -->
 

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--
+ASSIGNMENT RULES
+- The solution must be pushed to the repository and be available for the tutors by the end of the day.
+- You can ask for tutor's help.
+- You can google / use StackOverflow BUT we suggest you to use just the material provided.
+- To test the page, just open it with your default browser.
+- Use Bootstrap4 classes to render the page.
+- Use correctly containers and rows in order to achieve a great display.
+
+ASSIGNMENT TOPIC
+You are creating a website to showcase your favourite music albums.
+In this page you'd like to have a short bio of yourself, the top albums of your life, 
+the worst album you ever listen to and everything related to the music you love.
+
+NOTE:
+Most of the times, even the most expert of designers needs inspiration.
+Spend 30 minutes surfing the web and searching for the way of rapresenting album that you like the most.
+Could be the Amazon way, the Spotify or Apple music way or some other blog out there.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- IMPORT ALL THE BOOTSTRAP RELATED CSS & SCRIPTS-->
+
+    <style>
+      body {
+  background-image: url("https://wallpaperaccess.com/full/819305.jpg");
+  height: contain; 
+  width: contain;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+.card-container {
+    display: grid;
+    perspective: 700px;
+}
+ /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+ .flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  perspective: 1000px; /*3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgb(177, 38, 38);
+  color: white;
+  transform: rotateY(180deg);
+} 
+.row{
+  margin: 1000px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+nav{
+  margin-top: -10px;
+}
+h1{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color:blanchedalmond
+}
+.favorite{
+  margin: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+p{
+  color: whitesmoke;
+  text-align: center;
+  
+}
+h1{
+  padding: 20px;
+  
+}
+.card-container{
+  padding: 150px;
+}
+.jumbotron {
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+}
+.jumbotron video {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /*  object-fit is not supported on IE  */
+  object-fit: cover;
+  opacity: 0.5;
+}
+.jumbotron .container {
+  z-index: 2;
+  position: relative;
+}
+
+.footer{
+  color: aliceblue;
+}
+
+
+      /* EXERCISE 1
+            For all Albums we'd like to have a consistent style.
+            Create a class for:
+            - The album container
+            - The album cover
+            - The album title
+            - The album group / singer / dj
+            - The album genre
+            - The album duration
+            - etc
+         */
+    </style>
+  </head>
+  <body>
+      <div class="album-container"></div>
+      <div class="cover-container"></div>
+      <div class="title-container"></div>
+      <div class="group-container"></div>
+      <div class="genre-container"></div>
+      <div class="duration-container"></div>
+    <!-- EXERCISE 2 
+            Implement a navigation bar using the bootstrap component
+            This navigation bar must be linked to every section in your page
+        -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#" onclick='location.reload(true); return false;'>Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="nav" class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#nav">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#reviews">Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#worstofall">Worst</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#fave">Favorite</a>
+              </li>
+            
+              
+            </ul>
+          </div>
+        </nav>
+
+        <!--Jumbotron-->
+        <div class="jumbotron jumbotron-fluid">
+          <video autoplay muted loop>
+            <source
+              src="/vids/F.O.O.L - She (Official Audio).mp4"
+              type="video/mp4"
+            />
+          </video>
+    
+          <div class="container text-white">
+            <div id="fku" class="container">
+              <h1 class="display-4">Strivefy</h1>
+              <p class="lead text-center">
+                
+              </p>
+            </div>
+            <br class="my-4" />
+            <a
+              class="btn btn-danger btn-lg rounded-0"
+              href="#"
+              role="button"
+              >Sign up now</a
+            >
+          </div>
+        </div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Library</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Data</li>
+          </ol>
+        </nav>
+    <!-- EXERCISE 3
+            Create a responsive section for your favourite albums.
+            In this section you should have:
+            - 4 albums per row when the screen is very large
+            - 3 albums per row when you are on a tablet (or a smaller window)
+            - 2 albums per row when you are on a small screen
+        -->
+        <h1 id="albums">Albums</h1>
+        <section class="responsive">
+          <div class="row mt-6 mb-6">
+
+            <div class="col-sm-4 col-md-3 mt-6 mb-6">
+              <div class="flip-box">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="https://img.discogs.com/vfqan3-PZXv7YNJbiGweS42jNwA=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4309808-1554472604-7500.jpeg.jpg" class="img-fluid" alt="Responsive image">
+                  </div>
+                  <div class="flip-box-back">
+                    <iframe src="https://open.spotify.com/embed/track/7zlueeMmamTjOYMDgIO3hz" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="img-fluid" alt="Responsive image" ></iframe>
+                    <h2>F.O.O.L</h2>
+                                <p>Date First Available : February 28, 2013 <br>
+                                  Manufacturer : Tasty Records <br>
+                                  Length: 4:36</p>
+                  </div>
+                </div>
+              </div> 
+              </div>
+              <div class="col-sm-4 col-md-3 mt-6 mb-6">
+              
+                <div class="flip-box">
+                  <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                      <img src="https://external-preview.redd.it/X-7foDhCHvi8QVCick19o7RrinF4W7VDZal0-cel4Fw.jpg?auto=webp&s=c6f784ef952e488fdbe7f02a923d3692f4bb0960" class="img-fluid" alt="Responsive image">
+                    </div>
+                    <div class="flip-box-back">
+                      <iframe src="https://open.spotify.com/embed/track/4EotTNQCqxdxFAjxXJ2L1w" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+                    </div>
+                  </div>
+                </div> 
+                </div>
+                <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                  <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img src="https://vignette.wikia.nocookie.net/monstercat/images/4/47/Hysteria_wide.jpg/revision/latest?cb=20200726135242" class="img-fluid" alt="Responsive image">
+                      </div>
+                      <div class="flip-box-back">
+                        <iframe src="https://open.spotify.com/embed/track/0MfropleMNGjYh56lbdkHM" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                      </div>
+                    </div>
+                  </div> 
+                  </div>
+                  <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                    <div class="flip-box">
+                      <div class="flip-box-inner">
+                        <div class="flip-box-front">
+                          <img src="https://vignette.wikia.nocookie.net/monstercat/images/c/c5/Horsepower_Remix.jpg/revision/latest?cb=20200905234435" class="img-fluid" alt="Responsive image">
+                        </div>
+                        <div class="flip-box-back">
+                          <iframe src="https://open.spotify.com/embed/track/6Vhd1f9ezZEVxc4BkZMyGX" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        </div>
+                      </div>
+                    </div> 
+                    </div>
+                    <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                      <div class="flip-box">
+                        <div class="flip-box-inner">
+                          <div class="flip-box-front">
+                            <img src="https://images.genius.com/65ad003390e632d6a345c40d7187a289.1000x1000x1.jpg" class="img-fluid" alt="Responsive image">
+                          </div>
+                          <div class="flip-box-back">
+                            <iframe src="https://open.spotify.com/embed/track/1FrNSgJjVV0uvg7bMy4HgY" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                          </div>
+                        </div>
+                      </div> 
+                      </div>
+                      <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                        <div class="flip-box">
+                          <div class="flip-box-inner">
+                            <div class="flip-box-front">
+                              <img src="https://external-preview.redd.it/X-7foDhCHvi8QVCick19o7RrinF4W7VDZal0-cel4Fw.jpg?auto=webp&s=c6f784ef952e488fdbe7f02a923d3692f4bb0960" class="img-fluid" alt="Responsive image">
+                            </div>
+                            <div class="flip-box-back">
+                              <h2>F.O.O.L</h2>
+                              <p>Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no.</p>
+                            </div>
+                          </div>
+                        </div> 
+                        </div>
+                        <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                          <div class="flip-box">
+                            <div class="flip-box-inner">
+                              <div class="flip-box-front">
+                                <img src="https://external-preview.redd.it/X-7foDhCHvi8QVCick19o7RrinF4W7VDZal0-cel4Fw.jpg?auto=webp&s=c6f784ef952e488fdbe7f02a923d3692f4bb0960" class="img-fluid" alt="Responsive image">
+                              </div>
+                              <div class="flip-box-back">
+                                <h2>F.O.O.L</h2>
+                                <p>Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no.</p>
+                              </div>
+                            </div>
+                          </div> 
+                          </div>
+                          <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                            <div class="flip-box">
+                              <div class="flip-box-inner">
+                                <div class="flip-box-front">
+                                  <img src="https://external-preview.redd.it/X-7foDhCHvi8QVCick19o7RrinF4W7VDZal0-cel4Fw.jpg?auto=webp&s=c6f784ef952e488fdbe7f02a923d3692f4bb0960" class="img-fluid" alt="Responsive image">
+                                </div>
+                                <div class="flip-box-back">
+                                  <h2>F.O.O.L</h2>
+                                  <p>Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no.</p>
+                                </div>
+                              </div>
+                            </div> 
+                            </div>
+                            <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                              <div class="flip-box">
+                                <div class="flip-box-inner">
+                                  <div class="flip-box-front">
+                                    <img src="https://img.discogs.com/9Srajdprz7_t25_qcP500NRunjc=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-13434811-1554143465-1742.jpeg.jpg" class="img-fluid" alt="Responsive image">
+                                  </div>
+                                  <div class="flip-box-back">
+                                    <iframe src="https://open.spotify.com/embed/track/2b5quz1xqBnmUeYYPdPkuS" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                  </div>
+                                </div>
+                              </div> 
+                              </div>
+                              <div class="col-sm-4 col-md-3 mt-6 mb-6">
+                                <div class="flip-box">
+                                  <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                      <img src="https://i1.sndcdn.com/artworks-000054572303-dc4jx6-t500x500.jpg" class="img-fluid" alt="Responsive image">
+                                    </div>
+                                    <div class="flip-box-back">
+                                      <iframe src="https://open.spotify.com/embed/track/2uloKR8LNxKId2HGDvsDUF" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                    </div>
+                                  </div>
+                                  
+                                      
+                                </div> 
+                                </div>
+              
+          </div>
+        </section>
+    <!-- EXERCISE 4
+            Create a section for the album review.
+            Pick one of your fav albums, and create a section with:
+            - Cover
+            - Title
+            - Band
+            - Lenght
+            - Genre
+            - Tracklist
+            - ... And whatever you think it's interesting about it!
+        -->
+        <section class="col mt-5 mb5">
+          <h1 id="reviews">Reviews</h1>
+          <div class="card-group">
+            <div class="card">
+              <img class="card-img-top" src="https://www.swr.de/-/id=14467836/property=gallery/pubVersion=2/width=648/15yv04s/Cover%20von%20%22Dark%20Side%20of%20The%20Moon%22%20Pink%20Floyd.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Album reviews Blog</h5>
+                <p class="card-text text-monospace text-dark">As much as Waters’ lyrics are important, the best moments of Dark Side are musical. ‘The Great Gig in the Sky’, features gospel wailing over Richard Wright’s piano, and ‘Any Colour You Like’ has tasty organ and guitar interplay. My favourite song on Dark Side of the Moon is the epic ‘Us And Them’.” The single ‘Money’ is good, but feels out of place, rooted by Waters’ memorable bass line, instead of going into interstellar overdrive like the spacier material.</p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/61O0xzf8l5L._AC_SX466_.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Idk some dude</h5>
+                <p class="card-text text-monospace text-dark">It’s on “Coffee Bean” that Scott reflects on his recent and seemingly unexpected parenthood with Kylie Jenner, obliquely addressing his complicated feelings on the matter: “Your family told you I’m a bad move/Plus, I’m already a black dude.” It’s a fascinating, somewhat jarring moment of introspection on an album where Scott is otherwise content—intentionally or not—to play ringmaster to his neon-decayed circus of sound rather than become the main attraction.</p>
+              </div>
+              
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/07/attachment_99931428.png?auto=format&q=60&fit=max&w=930" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text text-monospace text-dark">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+    <!-- EXERCISE 5
+            Worst album list! Find out the music you don't really like or you find overrated and list it
+            in this "hall of shame" chart!
+        -->
+        <section>
+          <h1 id="worstofall">Hall of shame</h1>
+          <div class="row mt-4 mb-4">
+              
+            <div class="col-md-3 mb-4">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <div class="flip-box-front">
+                  <img src="https://musicheadquarter.de/wp-content/uploads/2012/07/justin-bieber-album-believe-cover.jpg" lass="img-fluid" alt="Responsive image">
+                </div>
+                <div class="flip-box-back">
+                  <h2>Bober</h2>
+                  <p>Worst of the worst</p>
+                </div>
+              </div>
+            </div> 
+            </div>
+            <div class="col-md-3 mb-4">
+              <div class="flip-box">
+                <div class="flip-box-inner">
+                  <div class="flip-box-front">
+                    <img src="https://musicheadquarter.de/wp-content/uploads/2012/07/justin-bieber-album-believe-cover.jpg" lass="img-fluid" alt="Responsive image">
+                  </div>
+                  <div class="flip-box-back">
+                    <h2>Bober</h2>
+                    <p>Worst of the worst</p>
+                  </div>
+                </div>
+              </div> 
+              </div>
+              <div class="col-md-3 mb-4">
+                <div class="flip-box">
+                  <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                      <img src="https://musicheadquarter.de/wp-content/uploads/2012/07/justin-bieber-album-believe-cover.jpg" lass="img-fluid" alt="Responsive image">
+                    </div>
+                    <div class="flip-box-back">
+                      <h2>Bober</h2>
+                      <p>Worst of the worst</p>
+                    </div>
+                  </div>
+                </div> 
+                </div>
+                <div class="col-md-3 mb-4">
+                  <div class="flip-box">
+                    <div class="flip-box-inner">
+                      <div class="flip-box-front">
+                        <img src="https://musicheadquarter.de/wp-content/uploads/2012/07/justin-bieber-album-believe-cover.jpg" lass="img-fluid" alt="Responsive image">
+                      </div>
+                      <div class="flip-box-back">
+                        <h2>Bober</h2>
+                        <p>Worst of the worst</p>
+                      </div>
+                    </div>
+                  </div> 
+                  </div>
+                  
+            
+        </div>
+        </section>
+    <!-- EXERCISE 6
+            Do you have any musician / band you admire or you are fan of?
+            This section is dedicated to him / her / them!
+            Feel free to experiment in this part of the page.
+        -->
+        <section>
+          <h1 id="fave">Favorite</h1>
+          
+         
+            <p class="text-md-center">Right aligned text on all viewport sizes.</p>
+               <div class="col-md-3 mt-6 mb-6">               
+                <div class="favorite">
+                  <img src="https://external-preview.redd.it/X-7foDhCHvi8QVCick19o7RrinF4W7VDZal0-cel4Fw.jpg?auto=webp&s=c6f784ef952e488fdbe7f02a923d3692f4bb0960" class="img-fluid" alt="Responsive image">
+   
+               </div> 
+                
+        </section>
+    <!-- EXERCISE 7
+            Just covers!
+            Create a tapestry of album pictures. Every album picture must be "square" (use CSS to do that).
+            Put at least 20 covers (also repeated) to have a nice effect and see how Bootstrap handles it.
+        -->
+
+    <!-- EXERCISE 8
+            Implement a footer with some information / social links
+        -->
+        <div class="container ">
+          <footer class="page-footer font-small stylish-color-dark pt-4">
+              <section class="mb-4">
+                  <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                  <div class="row">
+                      <div class="col-md-9 mb-md-0 mb-5 text-align-center">
+                          <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="md-form mb-0">
+                                          <input type="text" id="email" name="email" class="form-control">
+                                          <label for="email" class="">Your email</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+
+                                      <div class="md-form">
+                                          <textarea type="text" id="message" name="message" rows="2"
+                                              class="form-control md-textarea"></textarea>
+                                          <label for="message">Your message</label>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+                          </form>
+                      </div>
+
+                  </div>
+
+    <!-- EXTRA:
+         EXERCISE 9
+            Create album details that are going to be toggled on and off by clicking on the album image
+        -->
+
+    <!-- EXERCISE 10
+            Add a button to each section. By clicking on it the section body appears (if hidden) or disappears (if visible)
+        -->
+
+    <!--
+            EXERCISE 11
+            Add in the footer a field that counts, on page load, how many ALBUMS are on the page 
+        -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      </body>
+</html>

@@ -7,4 +7,7 @@
       font-weight: 600;
       color: black;
   }
+  .hover:hover {
+    opacity: 0.3 !important;
+  }
   
